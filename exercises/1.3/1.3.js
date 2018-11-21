@@ -17,7 +17,8 @@ const answer = (...nums) =>
     add,
     map(square),
     take(2),
-    sortDesc
-  )(flat(nums));
+    sortDesc,
+    flat
+  )(nums);
 
 module.exports = answer;
