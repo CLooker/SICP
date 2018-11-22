@@ -4,7 +4,9 @@
   "description": "My attempts at [SICP](http://web.mit.edu/alexmv/6.037/sicp.pdf) exercise solutions.",
   "main": "index.js",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "nums": "^1.0.0",
+    "primes": "0.0.1"
   },
   "scripts": {
     "test": "jest",

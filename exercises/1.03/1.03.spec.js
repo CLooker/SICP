@@ -1,4 +1,4 @@
-const answer = require('./1.3');
+const answer = require('./1.03');
 
 describe('answer', () => {
   const numsColls = [
