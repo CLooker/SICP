@@ -3,7 +3,7 @@ Write a procedure that checks the primality of consecutive odd integers
 in a specified range. Use your procedure to find the three smallest primes
 larger than: 1,000, 10,000, 100,000, and 1,000,000.
 Note the time needed to test each.
-The testing algorithm timedPrimeTest has order of growth theta(sqrt(n)),
+The testing algorithm getPrimeTestTime has order of growth theta(sqrt(n)),
 so you should expect that testing for primes around 10,000 should take about
 sqrt(10) times as long as testing for primes near 1,000.
 Do your timing data confirm this?
@@ -22,17 +22,17 @@ const getPrimeTestTime = async num => {
 };
 
 const getPrimes = (min, max) => {
-  const fastSearchForPrimes = (currMin, primes = [2]) =>
+  const fastGetPrimes = (currMin, primes = [2]) =>
     currMin > max
       ? primes
       : isEven(currMin)
-      ? fastSearchForPrimes(currMin + 1, primes)
-      : fastSearchForPrimes(
+      ? fastGetPrimes(currMin + 1, primes)
+      : fastGetPrimes(
           currMin + 2,
           isPrime(currMin) ? primes.concat(currMin) : primes
         );
 
-  return fastSearchForPrimes(min <= 2 ? 3 : min);
+  return fastGetPrimes(min <= 2 ? 3 : min);
 };
 
 module.exports = getPrimes;
