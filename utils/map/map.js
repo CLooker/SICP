@@ -1,2 +1,2 @@
-const map = fn => coll => coll.map(fn);
+const map = fn => arr => arr.map(fn);
 module.exports = map;
