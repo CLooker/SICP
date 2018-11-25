@@ -1,13 +1,13 @@
 const getNums = (start, end) => {
-  let nums = [];
+  // allows user to say `getNums(5)`
+  // and receive [1,2,3,4,5]
   if (end === undefined) {
     end = start;
     start = 1;
   }
-  for (let num = start; nums.length <= Math.abs(start - end); ) {
-    nums.push(num);
-    start < end ? num++ : num--;
-  }
+  let nums = [];
+  for (let num = start; nums.length <= Math.abs(start - end); )
+    nums.push(start < end ? num++ : num--);
   return nums;
 };
 
