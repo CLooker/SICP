@@ -13,6 +13,7 @@ const expmod = (base, exp, divisor) =>
     ? square(expmod(base, exp / 2, divisor)) % divisor
     : (base * expmod(base, exp - 1, divisor)) % divisor;
 
-const fermatTest = p => getNums(1, p - 1).every(a => a === expmod(a, p, p));
+const fermatTest = num =>
+  getNums(1, num - 1).every(currNum => currNum === expmod(currNum, num, num));
 
 module.exports = fermatTest;
