@@ -1,28 +1,19 @@
 const fermatTest = require('./1.27');
-const getPrimes = require('../1.22/1.22.js');
-const smallestDivisor = require('../1.23/1.23.js');
+const getPrimes = require('../1.22/1.22');
 
-const isPrime = num => num === smallestDivisor(num);
-
-describe('$fermatTest relationship with Carmichael numbers', () => {
+describe('$fermatTest relationship with prime and Carmichael numbers', () => {
   const CarmichaelNums = [561, 1105, 1729, 2465, 2821, 6601];
-
-  CarmichaelNums.forEach(CarmichaelNum => {
-    test('the Carmichael is not a prime number', () => {
-      expect(isPrime(CarmichaelNum)).toBeFalsy();
-    });
-    test('the Carmichael fools the $fermatTest', () => {
-      expect(fermatTest(CarmichaelNum)).toBeTruthy();
-    });
-  });
-});
-
-describe('$fermatTest still generally good at picking out primes', () => {
-  const primes = getPrimes(0, 10000);
+  const primes = getPrimes(0, 1000);
 
   primes.forEach(prime => {
-    test('$fermatTest confirms each $prime', () => {
+    test('$fermatTest is not tricked', () => {
       expect(fermatTest(prime)).toBeTruthy();
+    });
+  });
+
+  CarmichaelNums.forEach(CarmichaelNum => {
+    test('$fermatTest is tricked', () => {
+      expect(fermatTest(CarmichaelNum)).toBeTruthy();
     });
   });
 });
