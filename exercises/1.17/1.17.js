@@ -3,8 +3,8 @@
   that uses a logarithmic number of steps.
 */
 const { isEven } = require('../../utils');
-const double = n => n + n;
-const halve = n => n / 2;
+const double = num => num + num;
+const halve = num => num / 2;
 
 const multiply = (a, b) => {
   const fastMultiply = (currA, currB, total) =>
