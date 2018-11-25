@@ -8,18 +8,13 @@ Write a procedure that computes f by means of an iterative process.
 
 const { add } = require('../../utils');
 
-const fRec = n =>
-  n < 3 ? n : add(fRec(n - 1), 2 * fRec(n - 2), 3 * fRec(n - 3));
+const fRec = num =>
+  num < 3 ? num : add(fRec(num - 1), 2 * fRec(num - 2), 3 * fRec(num - 3));
 
-/* 
-Because v8 and node don't currently worry about TCO,
-I don't think this actually is run iteratively under the hood.
-Nonetheless, the solution is representative of the spirit of the book.
-*/
-const fIter = n => {
-  const fastFIter = (a, b, c, currN) =>
-    currN === 0 ? a : fastFIter(b, c, add(c, 2 * b, 3 * a), currN - 1);
-  return fastFIter(0, 1, 2, n);
+const fIter = num => {
+  const fastFIter = (a, b, c, currNum) =>
+    currNum === 0 ? a : fastFIter(b, c, add(c, 2 * b, 3 * a), currNum - 1);
+  return fastFIter(0, 1, 2, num);
 };
 
 module.exports = { fRec, fIter };
