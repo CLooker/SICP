@@ -1,6 +1,6 @@
 const add = require('./add');
 
-describe.only('add', () => {
+describe('add', () => {
   const numsColls = [
     [237894, 345690, 234, 90234, 23459],
     [2348, 234908, 234890, 2347, 890],
