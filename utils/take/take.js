@@ -1,2 +1,2 @@
-const take = size => coll => coll.slice(0, size);
+const take = size => arr => arr.slice(0, size);
 module.exports = take;
