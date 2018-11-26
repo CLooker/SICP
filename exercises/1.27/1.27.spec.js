@@ -1,9 +1,9 @@
 const fermatTest = require('./1.27');
 const getPrimes = require('../1.22/1.22');
 const smallestDivisor = require('../1.23/1.23');
-const isPrime = num => num === smallestDivisor(num);
+const isPrime = int => int === smallestDivisor(int);
 
-describe('$fermatTest relationship with prime and Carmichael numbers', () => {
+describe('$fermatTest relationship with prime and Carmichael integers', () => {
   getPrimes(0, 1000).forEach(prime => {
     test('$fermatTest is not tricked', () => {
       expect(fermatTest(prime)).toBeTruthy();

@@ -1,10 +1,10 @@
 /* 
-Demonstrate that Carmichael numbers really do fool the Fermat test.
+Demonstrate that Carmichael integers really do fool the Fermat test.
 Write a procedure that takes an integer n and tests whether a^n is congruent 
-to a%n for every a<n, and try your procedure on Carmichael numbers.
+to a%n for every a<n, and try your procedure on Carmichael integers.
 */
 
-const { getNums, isEven, square } = require('../../utils');
+const { getInts, isEven, square } = require('../../utils');
 
 const expmod = (base, exp, divisor) =>
   exp === 0
@@ -13,9 +13,9 @@ const expmod = (base, exp, divisor) =>
     ? square(expmod(base, exp / 2, divisor)) % divisor
     : (base * expmod(base, exp - 1, divisor)) % divisor;
 
-const fermatTest = num =>
-  getNums(num <= 2 ? 1 : 2, num - 1).every(
-    currNum => currNum === expmod(currNum, num, num)
+const fermatTest = int =>
+  getInts(int <= 2 ? 1 : 2, int - 1).every(
+    currInt => currInt === expmod(currInt, int, int)
   );
 
 module.exports = fermatTest;
