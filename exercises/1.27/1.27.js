@@ -14,6 +14,8 @@ const expmod = (base, exp, divisor) =>
     : (base * expmod(base, exp - 1, divisor)) % divisor;
 
 const fermatTest = num =>
-  getNums(num - 1).every(currNum => currNum === expmod(currNum, num, num));
+  getNums(num <= 2 ? 1 : 2, num - 1).every(
+    currNum => currNum === expmod(currNum, num, num)
+  );
 
 module.exports = fermatTest;
