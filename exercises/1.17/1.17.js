@@ -1,6 +1,6 @@
 /* 
   With operations $double and $halve, design a multiplication procedure
-  that uses a logarithmic number of steps.
+  that uses a logarithmic integer of steps.
 */
 const { isEven } = require('../../utils');
 const double = num => num + num;

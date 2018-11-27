@@ -1,15 +1,15 @@
 const isDivisible = require('./isDivisible');
-const { getNums } = require('../../utils');
+const { getInts } = require('../../utils');
 
 describe('isDivisible', () => {
-  const nums = getNums(-50, 50);
-  const otherNums = getNums(5555, 5560);
+  const ints = getInts(-50, 50);
+  const otherInts = getInts(5555, 5560);
 
-  nums.forEach(num => {
-    otherNums.forEach(otherNum => {
+  ints.forEach(int => {
+    otherInts.forEach(otherInt => {
       it('should compute divisibility correctly', () => {
-        const actual = isDivisible(num, otherNum);
-        const expected = num % otherNum === 0;
+        const actual = isDivisible(int, otherInt);
+        const expected = int % otherInt === 0;
         expect(actual).toBe(expected);
       });
     });

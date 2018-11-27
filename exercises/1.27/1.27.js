@@ -1,7 +1,7 @@
 /* 
-Demonstrate that Carmichael integers really do fool the Fermat test.
+Demonstrate that Carmichael numbers really do fool the Fermat test.
 Write a procedure that takes an integer n and tests whether a^n is congruent 
-to a%n for every a<n, and try your procedure on Carmichael integers.
+to a%n for every a<n, and try your procedure on Carmichael numbers.
 */
 
 const { getInts, isEven, square } = require('../../utils');

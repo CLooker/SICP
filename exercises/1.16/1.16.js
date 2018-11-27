@@ -1,6 +1,6 @@
 /*
 Design a procedure that evolves an iterative exponentiation process that uses
-successive squaring and uses a logarithmic number of steps.
+successive squaring and uses a logarithmic integer of steps.
 */
 
 const { isEven, square } = require('../../utils');

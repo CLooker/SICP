@@ -1,29 +1,27 @@
 const answer = require('./1.03');
+const { square } = require('../../utils');
 
 describe('answer', () => {
-  const numsColls = [
+  const intsArrs = [
     [1, 1, 1],
     [2345238904, 234, 234890, 234, 230492035, 2, 234],
     [3456890, 234890, 23409, -23934, 64, 789],
     [1, 230948, 34590, 98345, 293847]
   ];
 
-  numsColls.forEach(nums => {
-    it('should compute the correct answer when passed an array of numbers', () => {
-      const twoBiggestNums = nums.sort((a, b) => b - a).slice(0, 2);
+  intsArrs.forEach(ints => {
+    it('should compute the correct answer when passed an array of integers', () => {
+      const twoBiggestInts = ints.sort((a, b) => b - a).slice(0, 2);
       let squares = [];
-      twoBiggestNums.forEach(num => {
-        const square = num * num;
-        squares.push(square);
-      });
+      twoBiggestInts.forEach(int => squares.push(square(int)));
 
-      const actual = answer(nums);
+      const actual = answer(ints);
       const expected = squares.reduce((sum, square) => sum + square, 0);
       expect(actual).toBe(expected);
     });
   });
 
-  it('should compute the correct answer when passed arguments of numbers', () => {
+  it('should compute the correct answer when passed arguments of integers', () => {
     expect(answer(1, 1, 1)).toBe(2);
     expect(answer(1, 10, 100)).toBe(100 * 100 + 100);
     expect(answer(55, 40, 75)).toBe(55 * 55 + 75 * 75);

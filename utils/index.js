@@ -2,7 +2,7 @@ module.exports = {
   add: require('./add'),
   compose: require('./compose'),
   flat: require('./flat'),
-  getNums: require('./getNums'),
+  getInts: require('./getInts'),
   isDivisbile: require('./isDivisble'),
   isEven: require('./isEven'),
   map: require('./map'),

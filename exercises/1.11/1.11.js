@@ -8,13 +8,13 @@ Write a procedure that computes f by means of an iterative process.
 
 const { add } = require('../../utils');
 
-const fRec = num =>
-  num < 3 ? num : add(fRec(num - 1), 2 * fRec(num - 2), 3 * fRec(num - 3));
+const fRec = int =>
+  int < 3 ? int : add(fRec(int - 1), 2 * fRec(int - 2), 3 * fRec(int - 3));
 
-const fIter = num => {
-  const fastFIter = (a, b, c, currNum) =>
-    currNum === 0 ? a : fastFIter(b, c, add(c, 2 * b, 3 * a), currNum - 1);
-  return fastFIter(0, 1, 2, num);
+const fIter = int => {
+  const fastFIter = (a, b, c, currInt) =>
+    currInt === 0 ? a : fastFIter(b, c, add(c, 2 * b, 3 * a), currInt - 1);
+  return fastFIter(0, 1, 2, int);
 };
 
 module.exports = { fRec, fIter };

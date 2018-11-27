@@ -24,7 +24,7 @@ describe('sortDesc', () => {
     ]);
   });
 
-  it('should sort numbers passed in as arguments from highest to lowest', () => {
+  it('should sort integers passed in as arguments from highest to lowest', () => {
     expect(sortDesc(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)).toEqual([
       10,
       9,

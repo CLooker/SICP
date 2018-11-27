@@ -6,12 +6,12 @@ Note the time needed to test each.
 */
 
 const smallestDivisor = require('../1.21/1.21');
-const isPrime = num => num === smallestDivisor(num);
+const isPrime = int => int === smallestDivisor(int);
 const { isEven } = require('../../utils');
 
-const getTestTime = async num => {
+const getTestTime = async int => {
   const start = process.hrtime();
-  await isPrime(num);
+  await isPrime(int);
   const end = process.hrtime(start);
   return end[1] / 1000000;
 };

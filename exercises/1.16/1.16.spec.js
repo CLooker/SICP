@@ -1,8 +1,8 @@
 const expt = require('./1.16');
-const { getNums } = require('../../utils');
+const { getInts } = require('../../utils');
 
 describe('expt', () => {
-  const bases = getNums(0, 10);
+  const bases = getInts(0, 10);
   const powers = bases;
 
   bases.forEach(base => {

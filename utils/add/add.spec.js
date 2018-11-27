@@ -9,14 +9,14 @@ describe('add', () => {
   ];
 
   numsColls.forEach(nums => {
-    it('should add the numbers in arrays up', () => {
+    it('should add the integers in arrays up', () => {
       const actual = add(nums);
       const expected = nums.reduce((sum, num) => sum + num, 0);
       expect(actual).toBe(expected);
     });
   });
 
-  it('should add up number arguments', () => {
+  it('should add up integer arguments', () => {
     expect(add(1, 2, 3, 4, 5, 6)).toBe(21);
     expect(add(10, 20, 30, 40, 50)).toBe(150);
     expect(add(500, 500, 500, 500)).toBe(2000);

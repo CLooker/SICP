@@ -1,15 +1,15 @@
 /*
-Define a procedure that takes three numbers as arguments
-and returns the sum of the squares of the two larger numbers.
+Define a procedure that takes three integers as arguments
+and returns the sum of the squares of the two larger integers.
 */
 const { compose, sortDesc, take, map, square, add } = require('../../utils');
 
-const answer = (...nums) =>
+const answer = (...ints) =>
   compose(
     add,
     map(square),
     take(2),
     sortDesc
-  )(nums);
+  )(ints);
 
 module.exports = answer;
