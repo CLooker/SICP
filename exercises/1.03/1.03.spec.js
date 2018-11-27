@@ -2,20 +2,20 @@ const answer = require('./1.03');
 const { square } = require('../../utils');
 
 describe('answer', () => {
-  const intsArrs = [
+  const numsArrs = [
     [1, 1, 1],
     [2345238904, 234, 234890, 234, 230492035, 2, 234],
     [3456890, 234890, 23409, -23934, 64, 789],
     [1, 230948, 34590, 98345, 293847]
   ];
 
-  intsArrs.forEach(ints => {
+  numsArrs.forEach(nums => {
     it('should compute the correct answer when passed an array of integers', () => {
-      const twoBiggestInts = ints.sort((a, b) => b - a).slice(0, 2);
+      const twoBiggestNums = nums.sort((a, b) => b - a).slice(0, 2);
       let squares = [];
-      twoBiggestInts.forEach(int => squares.push(square(int)));
+      twoBiggestNums.forEach(num => squares.push(square(num)));
 
-      const actual = answer(ints);
+      const actual = answer(nums);
       const expected = squares.reduce((sum, square) => sum + square, 0);
       expect(actual).toBe(expected);
     });
