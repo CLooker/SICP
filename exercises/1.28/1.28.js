@@ -14,8 +14,7 @@ const isPrime = int => {
         return 1;
       case isEven(exp):
         const isTrivialSqRt = (sqRt, squared) =>
-          [1, int - 1].some(trivialSqRt => trivialSqRt === sqRt) ||
-          squared % divisor !== 1;
+          [1, int - 1].includes(sqRt) || squared % divisor !== 1;
         const sqRt = expmod(base, exp / 2, divisor);
         const squared = square(sqRt);
         return isTrivialSqRt(sqRt, squared) ? squared % divisor : 0;
