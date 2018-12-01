@@ -5,17 +5,17 @@ and returns the value of the integral, computed using Simpson's rule.
 Use your procedure to integrate $cube between 0 and 1, with n = 100 and n = 1000.
 */
 
-const generalSum = (min, max, updateMinFn, updateNumFn) => {
-  const fastGeneralSum = (num, total = 0) =>
-    num > max
+const generalSum = (updateMinFn, updateSumTermFn) => (min, max) => {
+  const fastGeneralSum = (currMin, total = 0) =>
+    currMin > max
       ? total
-      : fastGeneralSum(updateMinFn(num), total + updateNumFn(num));
+      : fastGeneralSum(updateMinFn(currMin), total + updateSumTermFn(currMin));
 
   return fastGeneralSum(min);
 };
 
 const integral = (fn, x, limit, dx) =>
-  dx * generalSum(x + dx / 2, limit, term => term + dx, fn);
+  dx * generalSum(term => term + dx, fn)(x + dx / 2, limit);
 
 const simpsonIntegral = (fn, x, limit, totalIntervals) => {
   if (totalIntervals % 2 !== 0) {
@@ -40,7 +40,7 @@ const simpsonIntegral = (fn, x, limit, totalIntervals) => {
       ? 0 // we don't want area when term equals limit
       : fn(term) * getConstant.next().value; // multiply by constant
 
-  return h * generalSum(x, limit, addDx, getNextSumTerm);
+  return h * generalSum(addDx, getNextSumTerm)(x, limit);
 };
 
 module.exports = simpsonIntegral;
