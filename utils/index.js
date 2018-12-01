@@ -1,5 +1,4 @@
 module.exports = {
-  add: require('./add'),
   compose: require('./compose'),
   flat: require('./flat'),
   getInts: require('./getInts'),
@@ -9,5 +8,6 @@ module.exports = {
   sortAsc: require('./sortAsc'),
   sortDesc: require('./sortDesc'),
   square: require('./square'),
+  sum: require('./sum'),
   take: require('./take')
 };

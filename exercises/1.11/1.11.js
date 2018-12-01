@@ -6,14 +6,14 @@ Write a procedure that computes f by means of a recursive process.
 Write a procedure that computes f by means of an iterative process.
 */
 
-const { add } = require('../../utils');
+const { sum } = require('../../utils');
 
 const fRec = int =>
-  int < 3 ? int : add(fRec(int - 1), 2 * fRec(int - 2), 3 * fRec(int - 3));
+  int < 3 ? int : sum(fRec(int - 1), 2 * fRec(int - 2), 3 * fRec(int - 3));
 
 const fIter = int => {
   const fastFIter = (a, b, c, currInt) =>
-    currInt === 0 ? a : fastFIter(b, c, add(c, 2 * b, 3 * a), currInt - 1);
+    currInt === 0 ? a : fastFIter(b, c, sum(c, 2 * b, 3 * a), currInt - 1);
   return fastFIter(0, 1, 2, int);
 };
 
