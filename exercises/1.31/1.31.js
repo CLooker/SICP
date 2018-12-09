@@ -5,7 +5,7 @@ define $factorial in terms of $product. Also, use $product to
 compute approximations to pi.
 */
 
-const { isEven } = require('../../utils');
+const { compose, isEven } = require('../../utils');
 
 const product = (updateMinFn, updateSumTermFn) => (min, max) => {
   const fastProduct = (currMin, total = 1) =>
@@ -22,8 +22,12 @@ const identity = x => x;
 const factorial = int => product(inc, identity)(1, int);
 
 const piApprox = int => {
+  const addTwo = compose(
+    inc,
+    inc
+  );
   const updateSumTerm = int =>
-    isEven(int) ? (int + 2) / inc(int) : inc(int) / (int + 2);
+    isEven(int) ? addTwo(int) / inc(int) : inc(int) / addTwo(int);
 
   return 4 * product(inc, updateSumTerm)(1, int);
 };
