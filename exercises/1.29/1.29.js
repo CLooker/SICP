@@ -34,4 +34,4 @@ const simpsonIntegral = (fn, x, limit, totalIntervals) => {
   return (dx * generalSum(inc, getNextSumTerm)(0, totalIntervals)) / 3;
 };
 
-module.exports = { integral, simpsonIntegral };
+module.exports = { integral, simpsonIntegral, generalSum };
