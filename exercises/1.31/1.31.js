@@ -7,11 +7,11 @@ compute approximations to pi.
 
 const { compose, isEven } = require('../../utils');
 
-const product = (updateMinFn, updateSumTermFn) => (min, max) => {
+const product = (updateMinFn, updateTermFn) => (min, max) => {
   const fastProduct = (currMin, total = 1) =>
     currMin > max
       ? total
-      : fastProduct(updateMinFn(currMin), total * updateSumTermFn(currMin));
+      : fastProduct(updateMinFn(currMin), total * updateTermFn(currMin));
 
   return fastProduct(min);
 };
@@ -26,10 +26,10 @@ const piApprox = int => {
     inc,
     inc
   );
-  const updateSumTerm = int =>
+  const updateTerm = int =>
     isEven(int) ? addTwo(int) / inc(int) : inc(int) / addTwo(int);
 
-  return 4 * product(inc, updateSumTerm)(1, int);
+  return 4 * product(inc, updateTerm)(1, int);
 };
 
-module.exports = { factorial, piApprox };
+module.exports = { factorial, piApprox, product };
