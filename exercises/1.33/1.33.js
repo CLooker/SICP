@@ -11,6 +11,11 @@ Show how to express the following using $filteredAcc
       (all positive integers i < n such that gcd(i, n) === 1)
 */
 const isPrime = require('../1.28/1.28');
+const add = (a, b) => a + b;
+const inc = num => ++num;
+const square = num => num * num;
+const multiply = (a, b) => a * b;
+const identity = x => x;
 
 const filteredAcc = (
   predFn,
@@ -25,14 +30,8 @@ const filteredAcc = (
   return total;
 };
 
-const add = (a, b) => a + b;
-const inc = num => ++num;
-const square = num => num * num;
-
 const getSumOfPrimeSquares = filteredAcc(isPrime, add, inc, square, 0);
 
-const multiply = (a, b) => a * b;
-const identity = x => x;
 const getProductOfRelativePrimes = intForRelativePrimeComparison => {
   const isRelativePrime = int => {
     if (int >= intForRelativePrimeComparison) return false;
