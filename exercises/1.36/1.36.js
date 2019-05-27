@@ -4,6 +4,8 @@
   Compare the number of steps this takes with and without average damping.
 */
 
+const fixedPointTolerance = 0.00001;
+
 const fixedPointModified = (fn, firstGuess = 1) => {
   let guessesTotal = 0;
 
@@ -15,7 +17,7 @@ const fixedPointModified = (fn, firstGuess = 1) => {
 
     guessesTotal++;
 
-    return Math.abs(currGuess - nextGuess) < 0.00001
+    return Math.abs(currGuess - nextGuess) < fixedPointTolerance
       ? nextGuess
       : fastFixedPoint(nextGuess);
   };
@@ -34,8 +36,9 @@ const [damplessSolution, damplessGuessesTotal] = fixedPointModified(
 );
 
 module.exports = {
-  dampSolution,
-  dampGuessesTotal,
+  damplessGuessesTotal,
   damplessSolution,
-  damplessGuessesTotal
+  dampGuessesTotal,
+  dampSolution,
+  fixedPointTolerance
 };
