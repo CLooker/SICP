@@ -7,22 +7,22 @@
   iterative process, or vice versa.
 */
 
-const contFrac = (getNumeratorFn, getDenominatorFn, terminationStep) => {
+const contFrac = (getNumeratorFn, getDenominatorFn, maxCalculations) => {
   const _cF = (currStep, total) =>
-    currStep === terminationStep
+    currStep === 0
       ? total
       : _cF(
-          currStep + 1,
+          currStep - 1,
           getNumeratorFn(currStep) / (getDenominatorFn(currStep) + total)
         );
 
-  return _cF(0, 1);
+  return _cF(maxCalculations, 0);
 };
 
-const contFracIter = (getNumeratorFn, getDenominatorFn, terminationStep) => {
-  let total = 1;
+const contFracIter = (getNumeratorFn, getDenominatorFn, maxCalculations) => {
+  let total = 0;
 
-  for (let currStep = 0; currStep < terminationStep; currStep++) {
+  for (let currStep = maxCalculations; currStep > 0; currStep--) {
     total = getNumeratorFn(currStep) / (getDenominatorFn(currStep) + total);
   }
 

@@ -11,7 +11,7 @@ const toFixedNum = (placesAfterDecimal, num) =>
 describe('contFrac', () => {
   it('approximates a continued fraction', () => {
     const actual = pipe(
-      _ => contFrac(n => 1, n => 1, 11),
+      _ => contFrac(n => 1, n => 1, 12),
       curry(toFixedNum)(4)
     )();
 
@@ -28,7 +28,7 @@ describe('contFrac', () => {
 describe('contFracIter', () => {
   it('approximates a continued fraction', () => {
     const actual = pipe(
-      _ => contFracIter(n => 1, n => 1, 11),
+      _ => contFracIter(n => 1, n => 1, 12),
       curry(toFixedNum)(4)
     )();
 
