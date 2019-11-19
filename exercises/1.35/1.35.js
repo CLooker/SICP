@@ -17,4 +17,4 @@ const fixedPoint = (fn, firstGuess = 1) => {
 
 const getPhi = () => fixedPoint(x => 1 + 1 / x);
 
-module.exports = { getPhi };
+module.exports = { fixedPoint, getPhi };
