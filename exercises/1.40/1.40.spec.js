@@ -1,7 +1,7 @@
 const { averageDamp, cubic, deriv, newtonsMethod } = require('./1.40');
 
 describe('averageDamp', () => {
-  it('produces the answer as page 97', () => {
+  it('produces the answer on page 97', () => {
     const square = x => x * x;
     const actual = averageDamp(square, 10);
     const expected = 55;
