@@ -11,10 +11,10 @@ const { averageDamp } = require('../1.40/1.40');
 const nthRoot = (radicand, degree) => {
   const getRoot = y => radicand / Math.pow(y, degree - 1);
 
-  const iterations = (function getIterations(ret = 1, currRoot = degree) {
-    if (currRoot < 4) return ret;
-    if (currRoot === 4) return ret + 2;
-    return getIterations(ret + 1, currRoot / 2);
+  const iterations = (function getIterations(ret = 1, currDegree = degree) {
+    if (currDegree < 4) return ret;
+    if (currDegree === 4) return ret + 2;
+    return getIterations(ret + 1, currDegree / 2);
   })();
 
   const fixedPointInput = (function getFixedPointInput(
