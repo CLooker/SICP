@@ -3,7 +3,6 @@ const nthRoot = require('./1.45');
 
 describe('nthRoot', () => {
   const radicands = getInts(1, 10);
-  // const degrees = [2, 4, 16, 32, 64, 128, 256];
   const degrees = (function getDegrees(ret = [2]) {
     const last = ret[ret.length - 1];
     return last === 256 ? ret : getDegrees(ret.concat(last * 2));
