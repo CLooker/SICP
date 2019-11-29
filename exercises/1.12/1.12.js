@@ -3,50 +3,33 @@ Write a procedure that computes elements of Pascal's triangle by means of a
 recursive process. The numbers at the edge of the triangle are all 1, and each
 number inside the triangle is the sum of the two numbers above it.
 */
-
 const pascalsTriangle = width => {
   const height = width / 2;
 
-  let ret = [];
+  const rows = (function getRows(
+    currRows = [
+      Array.from({ length: width }, (_, i) => (i === width / 2 - 1 ? 1 : ''))
+    ]
+  ) {
+    if (currRows.length === height) return currRows;
 
-  for (let i = 1; i <= height; i++) {
-    let row = [];
+    const lastRow = currRows[currRows.length - 1];
 
-    const itemIndices = (() => {
-      const base = width / 2;
+    const nextRow = (function getNextRow(currNextRow = []) {
+      if (currNextRow.length === width) return currNextRow;
 
-      const first = base - i + 1;
+      const currNextRowItem =
+        [lastRow[currNextRow.length - 1], lastRow[currNextRow.length + 1]]
+          .filter(Number.isInteger)
+          .reduce((accum, item) => accum + item, 0) || '';
 
-      let indices = [first];
-
-      while (indices.length < i) {
-        const last = indices[indices.length - 1];
-        indices.push(last + 2);
-      }
-
-      return indices;
+      return getNextRow(currNextRow.concat(currNextRowItem));
     })();
 
-    for (let j = 1; j <= width; j++) {
-      if (itemIndices.includes(j)) {
-        if (i === 1) {
-          row.push(1);
-        } else {
-          // check these exist
-          let numsToSum = [ret[i - 1][j - 1], ret[i - 1][j + 1]];
-          let sum;
-          row.push(sum);
-        }
-      } else {
-        row.push('');
-      }
-    }
+    return getRows([...currRows, nextRow]);
+  })();
 
-    ret.push(row);
-    console.log('ret: ' + JSON.stringify(ret, null, 2));
-  }
-
-  return ret;
+  return rows;
 };
 
 module.exports = pascalsTriangle;
