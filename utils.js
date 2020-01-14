@@ -30,6 +30,8 @@ const isDivisible = (numerator, denominator) => numerator % denominator === 0;
 
 const isEven = (...ints) => flat(ints).every(int => int % 2 === 0);
 
+const logAsJson = value => pipe(toJson, console.log)(value);
+
 const map = fn => arr => arr.map(fn);
 
 const pipe = (...fns) => initialData =>
@@ -45,6 +47,8 @@ const sum = (...nums) => flat(nums).reduce((total, num) => total + num, 0);
 
 const take = size => arr => arr.slice(0, size);
 
+const toJson = value => JSON.stringify(value, null, 2);
+
 module.exports = {
   compose,
   curry,
@@ -52,11 +56,13 @@ module.exports = {
   getInts,
   isDivisible,
   isEven,
+  logAsJson,
   map,
   pipe,
   sortAsc,
   sortDesc,
   square,
   sum,
-  take
+  take,
+  toJson
 };

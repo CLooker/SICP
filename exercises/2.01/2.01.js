@@ -54,4 +54,4 @@ const normalizeRat = (numerator, denominator) => {
 
 const num = rat => car(rat);
 
-module.exports = { getIsPositive, makeRat };
+module.exports = { car, cdr, cons, getIsPositive, makeRat };
