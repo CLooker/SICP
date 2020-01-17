@@ -34,4 +34,4 @@ const midPointSegment = segment =>
     pipe(map(yPoint), average)(segment)
   );
 
-module.exports = { makePoint, makeSegment, midPointSegment };
+module.exports = { makePoint, makeSegment, midPointSegment, xPoint, yPoint };
