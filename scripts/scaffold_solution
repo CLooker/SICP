@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
-if [ $# -eq 0 ]
-  then
-    echo "No exercise supplied" && exit 1;
-fi
 
-# e.g. 1.13
-EXERCISE=$1
+set -eux
 
-SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-
+EXERCISE=${1?"EXERCISE arg is required, e.g. 1.13"}
+SCRIPT_PATH=$(cd "$(dirname "$0")"; pwd -P)
 EXERCISE_DIR="$SCRIPT_PATH/../exercises/$EXERCISE"
 
-echo "Creating directory for exercise ${EXERCISE}"
-mkdir $EXERCISE_DIR
+mkdir -p $EXERCISE_DIR
 
-echo "Creating $EXERCISE.js and $EXERCISE.spec.js"
-touch $EXERCISE_DIR/$EXERCISE.js $EXERCISE_DIR/$EXERCISE.spec.js
+for ext in '.js' '.spec.js'; do
+    touch ${EXERCISE_DIR}/${EXERCISE}${ext}
+done
+
